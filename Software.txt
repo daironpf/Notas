@@ -1,0 +1,444 @@
+
+Resumen del curso Visión General de la Ingeniería Web
+            Software
+Universidad Politécnica de Madrid
+        curso 2016 - 2017
+profesor: Luis Fernández Muñoz
+https://www.linkedin.com/in/luisfernandezmunyoz
+En esta lista de cursos comprende 8 videos para una duración total de 4 horas con 22 minutos.
+
+1.Naturaleza del Software
+1.1 Definición de Software
+    * "Es la información que suministra el desarrollador a la computadora para que manipule la información que suministra el usuario" [Cox]
+    * Toda información que le das al sistema para que luego manipule la que brinda el usuario es un software, esto incluye programas, scripts, imágenes para ui, ficheros de configuración etc.
+        > Software es Información. por tanto tenemos que tenerla organizada.
+
+1.2 Definición de Sistema Complejos
+    * Un Sistema es un conjunto de elementos que colaboran entre si para conseguir un objetivo entre todos ellos. Se encuentra delimitado por sus limites de espacio/temporales e influenciado por su entorno.
+    * Un Sistema Complejo es aquel cuya complejidad excede la capacidad intelectual humana.
+
+1.3 Atributos de Sistema Complejos
+    1.3.1   Estructura jerárquica
+            * El sistema complejo está compuesto de subsistemas interrelacionados que a su vez tienen sus propios subsistemas y así hasta que se alcanza algún elemento del más bajo nivel.
+            * Los niveles de su jerarquía representan los diferentes niveles de abstracción cada uno construido sobre otro y cada uno comprensible por si mismo.
+            * En cada nivel de abstracción, encontramos una colección de elementos que colaboran para proveer servicios a niveles superiores.
+
+    1.3.2   Elementos primarios relativos
+            * La elección de qué componentes en un sistema son primitivos es relativamente arbitraria y mayormente está a discreción del observador del sistema.
+
+    1.3.3   Separación de asuntos
+            * Hay una clara separación de asuntos entre las partes de diferentes niveles de abstracción.
+            * Hay un componente que se relaciona con otro componente en mayor o menor medida, pero si este componente (A) yo lo abro dentro del mismo encontraré una jerarquía de nuevos componentes(x,m,k) donde excepto el primitivo los otros tienen una jerarquía adentro.
+            * Entonces la interrelación que existe entre los componente internos de un componente(dígase los componente x,m,k) tienen una fuerza de interconexión mucho mas fuerte que las conexiones de estos mismos componentes con otro componente que no sea los que están dentro de su mismo componente(A).
+
+    1.3.4   Patrones comunes
+            * Los sistemas complejos por muy complejos que sean, tienen un conjunto de distintos tipos de elementos y estos interaccionan con otros elementos casi siempre de la misma forma, repitiendo sistemáticamente los mismo mecanismos de comunicación(tienen patrones comunes en su forma de comunicase)
+                Ej: todas las células del cuerpo humano se nutren por ósmosis sin importar el tipo que sean(eso es un patrón común).
+                    Nos comunicando hablando, por correo, en español, etc
+
+    1.3.5   Formas intermedias estables
+            * Un sistema Complejo no nace de la nada, normalmente viene de otro sistema que no era tan complejo pero por demanda, necesidad este se fue complicando para brindar mejores soluciones pero nunca nace de la nada, siempre tienen un origen en un sistema más simple
+
+2.Fundamentos del Software
+2.1 Introducción
+    Si al programar no tienes en el inconsciente que estoy haciendo una buena jerarquía, que estoy consiguiendo una buena modularidad, que estoy encapsulando lo que debo encapsular y que estoy creando buenas abstracciones,
+    en vez de eso si estas distraído con los detalles de los requisitos, la programación y solo te fijas en que logre funcionar; entonces el código de ese proyecto tiende al caos.
+    En programación orientada a objeto los módulos son las clases, con el tiempo los lenguajes lo que han buscado es crear un código más limpio y entendible.
+    "La observación general es que el principal enemigo de la fiabilidad, y tal vez de la calidad del software en general, es la complejidad". [Meyer]
+    La Ley de Conservación de la Complejidad dice que cada aplicación tiene una cantidad de complejidad que no puede ser eliminada u ocultada. [Tesler]
+        - No se trata de eliminar la complejidad sino manejarla para que quede entendible y fácil de interactuar con ella, pues siempre existirá una complejidad mínima inherente a lo que te hayan pedido.
+    Cuanto más complejo sea un sistema, más abierto está al colapso total. Gran parte de la complejidad que se tiene que dominar es la complejidad arbitraria. [Booch]
+    "El descubrimiento de un orden no es tarea fácil... sin embargo, una vez que el orden ha sido descubierto no hay dificultad alguna en reconocerlo". [Descartes]
+
+2.2 Abstracción
+    La abstracción es un "proceso mental de extracción de las características esenciales de algo, ignorando los detalles superfluos" [Booch]
+    Implicaciones:
+    * Una abstracción denota las características esenciales de un objeto que lo distinguen de todos los otros tipos de objetos y por lo tanto proporciona límites conceptuales nítidamente definidos, en relación con la perspectiva del espectador.
+    * Una abstracción se centra en la visión exterior de un objeto(sin meterme en sus tripas) y sirve para separar el comportamiento esencial de un objeto de su implementación.
+    * La abstracción es eminentemente subjetiva, dependiendo del interés del observador.
+    * Nos esforzamos para construir abstracciones de las entidades porque son directamente paralelos al vocabulario del dominio de un detector de problemas.
+
+2.3 Encapsulación
+    Definiciones:
+    * "La encapsulación es el proceso por la que se ocultan los detalles del soporte de las características esenciales de una abstracción" [Booch]
+       >> Se refiere a ocultar los detalles del soporte, (ocultar el como lo manipulas o guardas, pero sin alterar la información que le brindó a quien lo pide)
+    * La encapsulación proporciona barreras explícitas entre diferentes abstracciones y por lo tanto conduce a una clara separación de asuntos. El beneficio inmediato será la posibilidad de cambiar los soportes de las características de una abstracción sin afectar los elementos que dependan de esas características(posibilita el mantenimiento) porque no lo conocen, ni los mencionan.
+    ## Implicaciones:
+    * Existe una clara separación entre la interfaz y la implementación, todo lo que se encapsula debe quedar en la implementación(que será la estructura de datos, los algoritmos, sentencias... todo lo que tienes que hacer para llevar a cabo la abstracción que es lo que dejas público que es lo esencial que los demás necesitan saber de mi) el resto debe de estar encapsulado.
+    * Deberías definir la interfaz perfectamente bien y luego ver como lo implementas.
+    * Ninguna parte de un sistema complejo debe depender de los detalles internos de cualquier otra parte.
+
+2.4 Modularidad
+    * "La modularidad es el proceso de descomposición de un sistema en un conjunto de piezas acoplados y cohesivos" [Booch]
+    * El acoplamiento "[...] es la medida de fuerza de la asociación establecida por una conexión entre un módulo -elemento- y otro. El acoplamiento fuerte complica un sistema porque los módulos
+        son más difíciles de comprender, cambiar o corregir por sí mismos si están muy interrelacionados con otros módulos" [Booch].
+        >> Por tanto hay que minimizar las dependencias entre módulos.
+    * "La cohesión mide el grado de conectividad entre los elementos de un solo módulo." [Booch]
+        >> Por tanto, un módulo cohesivo tiene una fuerte relación entre sus métodos y sus atributos siendo fuertemente cohesiva.(métodos que usan dos o tres atributos de la propia clase).
+>> Se recomienda siempre tener los módulos(dígase clases, poco acoplados y cohesivos).
+    * La técnica de manejar la complejidad ha sido conocida desde la antigüedad: divide y vencerás.
+    * La modularidad bien hecha se dirige directamente a la complejidad inherente del software, porque con la descomposición en módulos atacamos esa complejidad que tiene el software, porque estás dividiendo a espacio de estados(no es lo mismo un programa con 100 variables globales que tener 20 módulos cada uno con 5 variables globales)
+    * Con la modularidad bien hecha ha de ser posible cambiar la implementación de unos módulos sin el conocimiento de la aplicación de otros módulos y sin afectar el comportamiento de los otros módulos.
+    * El bajo acoplamiento de un módulo se basa en la abstracción que limita su interfaz a lo esencial y en la encapsulación que oculta todos los detalles necesarios para su implementación pero innecesarios para otros módulos que se relacionen con éste.
+
+2.5 Jerarquía
+    * "Jerarquía es una clasificación u ordenamiento de las abstracciones"[Booch]
+    * La jerarquización es el proceso de estructuración por el que se produce una organización de un conjunto de elementos en grados o niveles de responsabilidad, de clasificación o de composición, ... entre otros.
+    Implicaciones:
+    * Cuando estés programando, cuando no tengas las jerarquías de composición fundamentales y las de clasificación y la implicación de unas en otras se te va el proyecto al caos, no es fácil encontrar las jerarquías.
+    * "Nuestra experiencia es que los sistemas de software complejos más exitosos son aquellos cuyos diseños incluyen explícitamente las estructuras y objetos bien diseñados y encarnan los cinco atributos de sistemas descritos en la sección anterior. [...]
+        Muy raramente nos encontramos con sistemas de software que se entregan a tiempo, que están dentro del presupuesto y que cumplen con sus requisitos, a menos que estén con estos factores en mente" [Booch]
+
+3. Economía del Software
+3.1 Introducción
+    Cuatro variables: Costo, Tiempo, ámbito(funcionalidad/requisitos), Calidad >> todo esto en el triángulo de hierro (buscar imagen en google)
+    No hay una relación sencilla entre las cuatro variables; por ejemplo, no puedes obtener software más rápido gastando más dinero, porque todo tiene un proceso que llevarse a cabo y es paso a paso.
+3.2 Variable Ámbito:
+    * Es la más importante a tener en cuenta.
+    * Menos ámbito hace posible entregar mejor calidad(mientras el problema del cliente esté todavía resuelto). También permite entregar más rápido y barato.
+    * Los requisitos nunca están claros al principio. Los clientes no pueden decirnos exactamente lo que ellos quieren al principio.
+    * Van cambiando a medida que avanza el tiempo y el desarrollo del proyecto mientras se interactúa con el cliente y este va viendo como va quedando y se da cuenta de cosas que ni él mismo sabía que necesitaba o quería.
+    * Hay que gestionarlo semanalmente, para proporcionar a los jefes de proyecto la información de cómo vamos.
+    * Implementa siempre primero los requisitos más importante para el cliente.
+3.3 Variable Tiempo
+    * Las restricciones de controlar proyectos controlando el tiempo, generalmente vienen de fuera, de las manos del cliente.
+    * Disponer de más tiempo para la entrega puede mejorar la calidad e incrementar el ámbito.
+    * Si tu empresa todos los proyectos se llevan por calendarios y terminan en catarsis entonces cambia de empresa porque no estás trabajando para buenos jefes.
+3.4 Variable Coste
+    * Mucho dinero puede engrasar la maquinaria un poco, pero demasiado dinero pronto crea más problemas que soluciones. (un proyecto de 150 programadores es un problema mejor dividirlo en varios proyectos)
+    * Si se da a un proyecto muy poco dinero, no seremos capaces de resolver el problema del negocio del cliente.
+    * No puedes gastar solo en calidad o ámbito.
+    * No puedes empezar un proyecto con mucha gente, a medida que se avanza crece según la demanda y necesidad.
+3.5 Variable Calidad
+    * Hay una extraña relación entre calidad interna (que miden los programadores) y externa(que mide el cliente). Sacrificar temporalmente la calidad interna para reducir el tiempo de salida al mercado del producto, con la esperanza que la calidad externa no se vea muy dañada es tentador a corto plazo. Cuando te permitas hacer eso el proyecto se va a la mierda.
+    * La Calidad es ética profesional.
+    * Si lo haces bien te va a ir mejor, en menos tiempo puedes hacer más cosas.
+3.6 Variables correlacionadas
+    * La forma de hacer en este modelo del juego del desarrollo del software es que las fuerzas externas (clientes, directores de proyecto) eligen los valores de tres variables cualquiera. El equipo de desarrollo determina el valor resultante de la cuarta variable.
+    * Si estás en una empresa donde te imponen el valor de las cuatro variables, la calidad siempre desaparecerá y tú también deberías desaparecer de esa empresa cuanto antes pues cuando todo reviente por presión gran parte caerá en ti como parte del equipo de desarrollo.
+
+4. Justificación de la Crisis del Software
+4.1 Introducción
+    * Nuestra incapacidad para dominar la complejidad desprende los resultados de los proyectos de software que llegan tarde, por encima del presupuesto y deficientes en los requisitos establecidos.
+    * El no poder dominar la complejidad del software hace que fallemos en las cuatro variables.
+    * "La complejidad del software es una propiedad esencial, no un accidente. Por esencial queremos decir que podemos dominar esta complejidad, pero nunca podemos hacer que se vaya. [...] A menudo llamamos a esta condición la crisis del software... " [Brooks]
+    * Un Proyecto de Software se considera de éxito: Si sólo te pasas el 50% del tiempo, 50% del presupuesto y entregas 2/3 partes de las funcionalidades.
+4.2 Causas de la Crisis del Software
+    1.  Falta de la involucración del usuario
+    2.  Requerimientos y especificaciones poco claras
+    3.  Cambio de requerimientos y especificaciones
+    4.  Poco apoyo de las gerencias involucradas
+    5.  Tecnología deficiente
+    6.  Falta de recursos
+    7.  Expectativas poco realistas
+    8.  Objetivos pocos claros
+    9.  Tiempos poco realistas
+    10. Nuevas tecnologías
+    11. Otros
+
+5. Complejidad del Software
+5.1 La complejidad del dominio del problema
+    *   Ley del Cambio Continuo: Un programa que se usa en un ámbito del mundo real, necesariamente debe cambiar o convertirse cada vez en menos útil.
+    *   Ley de la Complejidad Creciente: Debido a que los programas cambian por evolución, su estructura se convierte en más compleja a menos que se hagan esfuerzos activos para evitar este fenómeno. [Lehman y Belady]
+    -   Si no respetas la calidad del software que estás haciendo y manejando su complejidad entonces todo se va al carajo.
+5.2 Las limitaciones de la capacidad humana
+    *   El ser humano como ser biológico tiene sus propias limitaciones, tales como el máximo de piezas de información que un individuo puede comprender al mismo tiempo es del orden de siete, más o menos dos.
+    *   La velocidad de procesamiento es un factor limitante: la mente toma unos cinco segundos en aceptar una nueva pieza de información.
+5.3 La posible flexibilidad a través del software
+    *   Existen pocos estándares en la industria del software. Como resultado, el desarrollo de software sigue siendo una empresa de trabajo intensivo.
+    *   Se podrá reutilizar y tener factorías si las clases están perfectamente diseñadas, con buena abstracción, encapsulación, buena modularidad, bajo acoplamiento, alta cohesión, unas buenas jerarquías; entonces se puede ir creando una biblioteca y reutilizar partes de un proyecto para otros proyectos.
+5.4 El comportamiento de los sistemas discretos
+    *   Dentro de una aplicación grande, puede haber cientos o incluso miles de variables, así como más de un hilo de control. Toda la colección de estas variables, sus valores actuales y su dirección actual y la pila de llamadas de cada proceso dentro del sistema constituyen el estado actual de la aplicación.
+5.5 La dificultad de gestionar el proceso de desarrollo
+    *   La gran cantidad de requisitos de un sistema a veces es inevitable y nos obliga a escribir una gran cantidad de software nuevo o volver a utilizar el software existente en formas novedosas.
+
+6. Disciplinas del Software
+6.1 Introducción
+    *   Ingeniería de software es la aplicación práctica del conocimiento científico al diseño y construcción de programas de computadora y a la documentación asociada requerida para desarrollar, operar y mantenerlos. Se conoce también como desarrollo de software o producción de software [Bohem, 1976].
+    *   El software es sagrado [Booch] [... y requiere de un ritual] a ese ritual le llamamos requisitos, análisis y diseño.
+
+6.2 Disciplina de Requisitos
+    *   Los Requisitos es lo que hay que hacer para dirigir el desarrollo hacia el sistema correcto(que el software haga lo correcto)
+    *   La disciplina de requisitos es el flujo de trabajo, incluyendo actividades, trabajadores y documentos, cuyo propósito principal es dirigir el desarrollo hacia el sistema correcto al describir los requisitos del sistema así que pueda alcanzarse un acuerdo entre los clientes, usuarios y desarrolladores sobre lo que el sistema debería hacer:
+        >   Establecer y mantener el acuerdo entre los clientes y otros interesados (stakeholders - gerencia, marketing, usuarios sobre lo que el sistema debería hacer).
+        >   Proveer a los desarrolladores del sistema con una mejor comprensión de los requisitos del sistema.
+        >   Definir los límites del sistema.
+        >   Proveer las bases para planificar los aspectos técnicos del ambiente de desarrollo.
+        >   Proveer las bases para estimar los costes y tiempos para desarrollar el sistema.
+        >   Establecer los límites del software y hacérselo conocer al cliente, el jefe del proyecto tiene que establecer bien los límites del software y tenerlo por escrito como acuerdo con el cliente para que luego no se coma un problema enorme con el cliente cuando este quiera algo que está fuera de los límites.
+6.3 Disciplina de Análisis
+    *   Es el QUE voy a hacer !!
+    *   Es un diseño superficial que no contempla absolutamente nada de tecnología
+    *   Es una propuesta inicial
+    *   Es el flujo de trabajo, incluyendo trabajadores, actividades y documentos, cuyo principal objetivo es analizar los requisitos, una descripción de los requisitos que es fácil de mantener y ayuda a estructurar el sistema:
+        >   Dar una especificación más precisa de los requisitos obtenidos en la captura de requisitos.
+        >   Estructurar los requisitos de manera que facilite su comprensión cambiandolos y, en general, mantenerlos.
+
+6.33: Comparativa entre requisitos y análisis:
+    Requisitos:                                                     |  Análisis:
+    Descrito usando el lenguaje del cliente                         |  Descrito usando el lenguaje de los desarrolladores
+    Visión externa del sistema                                      |  Visión interna del sistema
+    Estructurado por requisitos, da estructura a la vista externa   |  Estructurado por clases estereotipadas y
+    Usado como contrato entre los clientes y los desarrolladores    |  Usado principalmente por desarrolladores para comprender qué funciones debería tener el sistema
+    Contiene muchas redundancias, inconsistencias y ambigüedades    |  No debería contener redundancias, inconsistencias, ... entre los requisitos
+
+6.4 Disciplina de Diseño
+    *   Es el CÓMO lo voy a hacer !!
+    *   Diseño es decidir cómo lo vamos a programar sin haberlo programado, escoger las estructuras de datos, escoger las clases oportunas, establecer las relaciones de las clases, establecer todo de cómo quiero que sea el código en mi software.
+    *   La disciplina de diseño es el flujo de trabajo, incluyendo actividades, trabajadores y documentos, cuyo principal propósito es desarrollar enfocados en los requisitos no funcionales y en el dominio de la solución para preparar la implementación y pruebas del sistema:
+        * Adquirir una comprensión profunda sobre los aspectos de los requisitos no funcionales y limitaciones relacionadas con:
+          > los lenguajes de programación
+          > la reutilización de componentes
+          > sistemas operativos
+          > tecnologías de distribución y concurrencia
+          > tecnologías de bases de datos
+          > tecnologías de interfaz de usuario
+          > tecnologías de gestión de transacciones
+    *   Con un diseño ya puedes repartir adecuadamente el trabajo en tu equipo de desarrolladores
+    *   Permite visualizar el software, puedes tener mapas de la arquitectura del software en las paredes (totalmente necesario).
+
+6.44 Comparativa entre análisis y diseño:
+    Análisis:                                                                                       |   Diseño:
+    Modelo conceptual porque es una abstracción del sistema y evita cuestiones de implementación    |   Modelo físico porque es un esbozo de la implementación
+    Menos formal                                                                                    |   Más formal
+    Diseño genérico, aplicable a varios diseños concretos                                           |   No es genérico, es el que se está proponiendo más específicamente para la implementación de este proyecto
+    Tres estereotipos conceptuales en las clases: modelo, vista, controlador                        |   Cualquier número de estereotipos físicos de clases dependendiendo del lenguaje
+    Menos costoso para el desarrollo (1:5 frente al diseño)                                         |   Más costoso para el desarrollo (5:1 frente al análisis)
+    Pocas capas arquitectónicas                                                                     |   Muchas capas arquitectónicas
+    Puede no ser mantenido a través de todo el ciclo de vida del software(a no ser que sea enorme)  |   Debería ser mantenido a través de todo el ciclo de vida del software
+    Principalmente creado en trabajo de campo, talleres y similares                                 |   Principalmente creado "programación visual"
+    Enfatiza la investigación del problema y sus requisitos                                         |   Enfatiza en la solución conceptual que cualquier requisitos más que la implementación
+    Haz lo correcto(has un software que cumpla con los requisitos del cliente)                      |   Hazlo correctamente(un software bien diseñado y bien hecho)
+
+6.5 Disciplina de Programación
+    *   Es implementar el sistema en términos de componentes, a programar y programar(implementación de todos los códigos)
+
+6.6 Disciplina de Pruebas
+    *   Es comprobar el resultado de la implementación al probar cada versión, incluyendo internas e intermedias, y versiones finales del sistema a entregar:
+    *   Encontrar y documentar los fallos, hacer todo tipo de pruebas
+    *   Validar que el software trabaje como fue diseñado
+    *   Validar que los requisitos son implementados apropiadamente
+
+6.7 Ecosistema de Desarrollo
+    *   El ecosistema es un conjunto de servicios integrados orientados al desarrollo de software y su objetivo es mejorar la coordinación y el trabajo realizado por el equipo de desarrollo.
+    *   La complejidad del software justifica la necesidad de herramientas que aceleren su producción, controlen su calidad y monitorizan su gestión a lo largo de todas las disciplinas de la ingeniería del software.
+    *   Para la disciplina de análisis y diseño se requiere de una herramienta CASE que facilite la edición de diagramas de análisis y diseño (diagramas de casos de uso, clases, objetos, paquetes, secuencia, colaboración, estados y actividades, implementación y despliegue)
+    *   se requiere una herramienta de métricas del software que determine automáticamente el grado de bondad de los componentes de la arquitectura del software: SonarQube
+    *   para programar se requiere de un IDE en mi caso uso IntelliJ IDEA de JetBrain
+    *   se requiere herramientas para complir las reglas de estilo (Sonarqube)
+    *   un ide con refactorización del código (renombrado de identificadores, nombrar constantes, mover métodos, ...)
+    *   un registro de los, trazas, depuración, errores. Log4j
+    *   un sistema de control de versiones. GitHub
+    *   para las pruebas donde se facilite la edición, ejecución, evaluación, testing. Junit, Selenium, ...
+    *   disciplina de pruebas se requiere de un sistema de integración continua para comprobar que el código y las pruebas funcionan tras cualquier cambio: Travis
+    *   Para el despliegue se requiere un gestor de proyectos para la automatización como el: Maven.
+    *   Una herramienta para la gestión de tickets para gestionar el proyecto, Tickets de GitHub.
+
+6.8 Conclusiones
+    Con todo lo anteriormente mencionado se intenta mitigar los problemas mencionados anteriormente en otro punto.
+    Antes de ponerse a programar siempre se hace el análisis y el diseño para saber que programar e ir eliminando los problemas del software.
+    Con estos pasos estamos llegando a grandes pasos a la reusabilidad de diseño y patrones para la implementación de otros proyectos
+    Ante el problema de los sistemas distintos, hacemos pruebas e integración continua.
+    Se crearon las metodologías para lidiar con todo esto.
+
+7.  Calidad del Software
+7.1 Calidad del Software
+    Todo el tiempo se está hablando de odontología profesional -> de hacerlo bien, lo cual incluye dinero, toda su gestión y calidad al final significa grandes cantidades de dinero en la empresa.
+    7.1.1   Factores de la Calidad del Software:
+        *   Corrección: Hace lo que se le pide?
+        *   Fiabilidad: Lo hace de forma fiable todo el tiempo?
+        *   Eficiencia: Qué recursos hardware y software necesito ?
+        *   Integridad: Puedo controlar su uso ?
+        *   Usabilidad: Es fácil y cómodo de manejar ?
+        *   Facilidad de mantenimiento: Puedo localizar los fallos ?
+        *   Flexibilidad: Puedo añadir nuevas opciones ?
+        *   Facilidad de prueba: Puedo probar todas las opciones ?
+        *   Portabilidad: Podré usarlo en otra máquina ?
+        *   Reusabilidad: Podré utilizar alguna parte del software en otra aplicación ?
+        *   Inter-operatividad: Podrá comunicarse con otras aplicaciones de sistemas informáticos ?
+
+    7.1.2   El diseño de software orientado a objetos es difícil, y el diseño de software orientado a objetos reutilizable es aún más difícil [...] Su diseño debe ser específico para el problema en cuestión, pero también suficiente para abordar los problemas y las necesidades futuras en general, También quiere evitar rediseñar, o al menos minimizarlo [Gamma et al].
+        *   Determinar objetos y clases con responsabilidades correctamente.
+        *   Determinar el interfaz correcto de cada clase.
+        *   Determinar la granularidad de métodos, clases y paquetes.
+        *   Determinar las jerarquías de herencia.
+        *   Determinar las dependencias entre clases y paquetes.
+    7.1.3   Signos de un Mal Diseño
+        A   Rigidez vs Flexibilidad, para la adaptación al cambio.
+        B   Fragilidad vs Robustez, sin propagación de errores.
+        C   Viscosidad vs Claridad, para la legibilidad.
+        D   Inmovilidad vs Movilidad, para la reusabilidad.
+
+    A- Rigidez: es la tendencia del software que es difícil de cambiar, incluso en formas simples. Cada cambio provoca una cascada de cambios posteriores en los módulos dependientes. Lo que comienza como un simple cambio de dos días a un módulo se convierte en un maratón de varias semanas de cambios en el módulo después de otros módulos según los ingenieros persiguen el hilo del cambio a través de la aplicación.
+        Cuando el software se comporta de esta manera, los gerentes temen que permitirá a los ingenieros no solucionar problemas críticos y la resistencia se deriva del hecho de que ellos no saben, con suficiente confiabilidad cuando terminarán.
+        Pueden llegar a ser los miedos del gerente tan agudos que este se niegue a permitir cambios en el software, la rigidez oficial se instalará tanto; lo que comienza como una deficiencia de diseño, terminará siendo una política de gestión adversa.
+    B- Fragilidad: Está en estrecha relación con la rigidez. Es la tendencia del software para estropearse en muchos lugares cada vez que se cambia. A menudo, el error se produce en las zonas que no tienen ninguna relación conceptual con el área que se ha cambiado.
+        Según empeora la fragilidad, la probabilidad de error aumenta con el tiempo, asintóticamente acercándose a 1. Este tipo de software es imposible de mantener. Cada solución hace que sea peor, llegando a la introducción de más problemas que soluciones.
+        Tales errores hacen que los clientes o la empresa sospechen que los desarrolladores han perdido el control de su software. La desconfianza reina y la credibilidad se pierde.
+    C- Viscosidad: viene en dos formas: viscosidad del diseño, y la viscosidad del entorno.
+        La viscosidad del diseño: se produce cuando nos enfrentamos a un cambio, los ingenieros suelen encontrar más de una manera de hacer el cambio. Algunas de las formas conservan el diseño, otras no lo hacen, es decir, son atajos.
+            Cuando preservar el diseño es más difícil que emplear los atajos, a continuación, la viscosidad del diseño es alta. Es fácil de hacer las cosas mal, pero difícil de hacer lo correcto.
+        La viscosidad del entorno: se produce cuando el entorno de desarrollo es lento e ineficiente. Por ejemplo, si los tiempos de compilación son muy largos, los ingenieros tendrán la tendencia a hacer cambios que no obliguen a grandes re-compilaciones pero estos cambios no son óptimos desde el punto de vista del diseño.
+            Si no rompes los ciclos y estos están por todos lados en el código entonces el tiempo de compilación es enorme. Con un buen diseño de clases tienes que romper estos ciclos y así optimizar el diseño.
+    D- Inmovilidad: es la imposibilidad de volver a utilizar el software de otros proyectos o de parte del mismo proyecto.
+        A menudo sucede que un ingeniero descubre que necesita un módulo que es similar a uno que escribió otro ingeniero. Sin embargo, también sucede a menudo que el módulo en cuestión tiene demasiado equipaje del que depende.
+        Después de mucho trabajo, los ingenieros descubren que el trabajo y el riesgo requerido para separar las partes deseables no son deseables. el software es simplemente reescrito en lugar de reutilizarlo.
+
+    Causas o motivos de un Mal Diseño:
+        Cambio de los requisitos(Ley del Cambio Continuo [Lehman y Belady])
+          * Requisitos
+            Los requisitos han ido cambiando de forma que el diseño inicial no anticipó. A menudo estos cambios deben hacerse rápidamente, y pueden ser hechos por los ingenieros que no están familiarizados con la filosofía de diseño original. Así que, aunque el cambio en el diseño funciona, viola de alguna manera el diseño original.
+                Poco a poco, a medida que los cambios siguen ocurriendo, estas violaciones se acumulan hasta que la podredumbre se asienta. Ley de Complejidad Creciente [Lehman y Belady]
+            Sin embargo, no podemos culpar a la deriva de los requisitos por la degradación del diseño. Nosotros como ingenieros de software, sabemos muy bien que las necesidades cambian. De hecho, la mayoría de nosotros nos damos cuenta de que el documento de requisitos es el documento más volátil en el proyecto.
+                Si nuestros diseños están fallando debido a la lluvia constante de cambios en los requisitos, son nuestros diseños los que están fallando.
+                Tenemos que encontrar alguna manera de hacer nuestros diseños resistentes a tales cambios, protegerlos de la descomposición(putrefacta).
+                Tenemos que crear un diseño de software que tenga fuerza y se mantenga cuando cambien los requisitos.
+          * Mala Gestión de Dependencias
+                Los cambios que introducen dependencias nuevas y no planificadas.
+                Las Dependencias son: cuando un pedazo del software depende de otro cacho de software; porque lo menciona o lo llama, uno depende del otro.
+                    entonces una clase depende de otra porque tiene objetos de esas clases como atributos o como locales o como parámetros, y les lanzo mensajes a esos objetos que están en esas clases de las que yo dependo.
+                Con el fin de evitar la degradación de la arquitectura de dependencias, las dependencias entre módulos en una aplicación deben ser gestionadas.
+                    Esta gestión consiste en la creación de un cortafuegos de dependencias. por Cortafuegos de dependencias entiéndase interfaces que hacen que una clase no conozca a otras clases sino a una interfaz,
+                        de tal manera que yo pueda cambiar la clase y si respeto la interfaz entonces a la otra no le afecta.
+
+7.2 Calidad del Software de Bajo Nivel
+    Código sucio(Smell Code - código maloliente, hediondez del código) de Beck, K. y Fowler, M. en 1999.
+    Código Limpio(Clean Code) de Martin, R. en 2008
+        El código limpio se puede leer y mejorar por un desarrollador que no sea su autor original.
+        Tiene pruebas de unidad y de aceptación.
+        Tiene nombres significativos
+        Proporciona una forma en lugar de muchas maneras para hacer una cosa.
+        Tiene dependencias mínimas, que se definen explícitamente, y proporciona una API clara y mínima.
+        El código se debe saber leer y escribir ya que dependiendo del lenguaje, no toda la información necesaria se puede expresar con claridad en el código solo.
+    El Código limpio es simple y directo.
+    Código limpio se lee como una buena prosa escrita.
+    Código limpio nunca oscurece la intención del diseñador, sino que está lleno de abstracciones nítidas.
+    Reglas positivas (Clean Code) y reglas negativas (Smell Code).
+
+7.3 Calidad del Software de Medio Nivel
+    Patrones Generales de Software para Asignación de Responsabilidades(GRASP - General Responsability Assignment Software Patterns / captar) de Larman, C. en 2005:
+    * Patrón Experto en información
+    * Patrón Alta cohesión
+    * Patrón Bajo acoplamiento
+    * Patrón Controlador
+    * Patrón Creador
+    * Patrón Polimorfismo
+    * Patrón Fabricación pura
+    * Patrón Indirección
+    * Patrón Variaciones Protegidas
+
+    Principios de Diseño Orientado a Objetos (SOLID) por Martin, R. en 1995
+    * Principio de Única Responsabilidad (SRP - The Single Responsibility Principle)
+    * Principio Abierto/Cerrado (OCP - The Open Closed Principle)
+    * Principio de Sustitución de Liskov (LSP - The Liskov Substitution Principle)
+    * Principio de Separación de Interfaces (ISP - The Interface Segregation Principle)
+    * Principio de Inversión de Dependencias (DIP - The Dependency Inversion Principle)
+
+    Patrones de Diseño por Gamma et al en 1994: Design Patterns Elements of Reusable Object-Oriented Software (autores la banda de los cuatros)
+       Patrones: Es reutilizar diseño para problemas en concreto que suceden de forma recurrente en el futuro.
+    Antipatrones: es un patrón que se cree que es bueno pero a la larga es malo(copy - paste, copiar código)
+
+7.4 Calidad del Software de Alto Nivel
+    Arquitectura del Software es el conjunto de decisiones significativas sobre la organización del sistema software, la selección de elementos estructurales en los que el sistema está compuesto y las interfaces entre ellos, junto con sus comportamientos especificados como colaboraciones de estos elementos, la composición de estos elementos estructurales y de comportamiento en subsistemas más grandes progresivamente [Booch, G]
+    Para tener arquitectura del software tienes que tener todo lo relacionado con una lógica en diferentes paquetes y hacerles flechas de dependencias donde indiques que paquetes dependen de otros y romper todos los ciclos existentes en el sistema
+    Si no tienes una arquitectura definida despídete a ti mismo pues es una mierda lo que haces.
+
+    Estilo Arquitectónico: te pauta como organizar todo tu software, el más famoso es el MVC
+    * Restricciones no funcionales (rendimiento, plataforma, ...)
+    * Tecnologías (protocolos, bases de datos, ...)
+    * Reusabilidad (diccionarios de datos, API 's, ...)
+    * Economía (sistemas heredados, frameworks, ...)
+    * Compromisos de uso (disponibilidad, amigabilidad, ...)
+    * Flexibilidad al cambio (patrones de software, cortafuegos, ...)
+    * y aspectos estéticos (C2, CMMI, ...)
+
+    Principios de Paquetes de Martin, R. en 1996 establece:
+    * Principio de Equivalencia entre Entrega y Reusabilidad
+    * Principio del Cierre Común
+    * Principio de la Reusabilidad Común
+    * Principio de Dependencias Acíclicas
+    * Principio de Dependencias Estables
+    * Principio de Abstracciones Estables
+
+7.5 Métricas de Calidad del Software
+    Una aplicación práctica de las métricas orientadas a objetos (OO), es predecir qué clases tienen una alta probabilidad de contener defectos.
+
+7.6 Reusabilidad del Software
+    Se está tratando de equilibrar la falta de la reusabilidad del código por la reusabilidad del diseño.
+    Ejemplo de reusabilidad del código y diseño son los frameworks
+
+7.7 Conclusiones
+    en positivos con patrones y negativos antipatrones
+    en positivo es código limpio y en negativo es código sucio
+
+8. Metodologías de Desarrollo del Software
+Proceso de Desarrollo del Software: el conjunto total de actividades necesarias para transformar los requerimientos del cliente en un conjunto consistente de artefactos que representan un producto software y, en un momento posterior, para transformar los cambios de estos requerimientos en una nueva versión del producto software.
+* La diferencia entre unas metodologías y otras radica en el orden, grado y técnicas en que se acometen las actividades de las disciplinas de la ingeniería del software.
+
+8.1 Metodología en Cascada
+    La versión original fue propuesta por Royce, W. W. en 1970 y posteriormente revisada por Boehm, B en 1980 y Sommerville, I. en 1985.
+    Contiene varias etapas y el inicio de cada etapa debe esperar a la finalización de la etapa anterior. Ante la detección de un error en una etapa se regresa para atrás.
+    A no ser que la aplicación sea pequeña y bien conocida su lógica entonces no se debe usar.
+    Ventajas:
+    *   Son modelos fáciles de implementar y entender. Son modelos conocidos y utilizados con frecuencia.
+    *   Promueven una metodología de trabajo efectiva: definir antes que diseñar, diseñar antes que codificar.
+    *   Si el 90% o más de los requisitos de tu sistema se espera que sean estables a lo largo de la vida del proyecto, entonces aplicar una política dirigida por los requisitos es una oportunidad apropiada de dar razonablemente una solución óptima. [Booch ]
+    Desventajas:
+    *   Cualquier error de diseño detectado en la etapa de prueba lleva necesariamente el rediseño y nueva programación del código afectado, aumentando los costos del desarrollo.
+
+8.2 Metodología Iterativas e Incrementales
+    Iteración: Un conjunto distinto de actividades llevado a cabo de acuerdo con un plan dedicado (iteración) y criterios de evaluación que se traduce en una entrega, ya sea interna o externa.
+        *   En cada iteración se planifica un poco, se requisita un poco, se analiza un poco,  se diseña un poco, se programa un poco, se prueba un poco y se entrega lo que tienes.
+    Incremento: Una parte del sistema pequeña y manejable, por lo general, la diferencia entre dos construcciones sucesivas.
+    *   Cada iteración se traducirá en al menos una nueva construcción y, por lo tanto, se añadirá un incremento en el sistema.
+    Planificar un poco. Especificar, diseñar e implementar un poco. Integrar, probar y ejecutar un poco en cada iteración. [Booch]
+    Entrega: Un conjunto de artefactos(documentos y posiblemente una construcción ejecutable) relativamente completa y consistente entregada a usuarios externos o internos.
+        *   Entrega Interna: Una entrega no expuesta a los clientes y usuarios pero sí internamente solo para el proyecto y sus miembros.
+        *   Entrega Externa: Un entrega expuesta a clientes y usuarios externos al proyecto y sus miembros.
+    Desventajas:
+    *   Dificultad para gestionar a los miembros del equipo de desarrollo en una iteración cerrada o dificultad para gestionar a los miembros del equipo de desarrollo con varias iteraciones abiertas en paralelo.
+    Ventajas:
+    *   Permite la participación del usuario desde fechas tempranas del proyecto para corregir las desviaciones de sus necesidades.
+    *   Permite elevar el ánimo del equipo de desarrollo con las empresas externas que superan las pruebas de aceptación.
+    *   Errores de programación, diseño, ... se localizan con facilidad incremento producido en la iteración vigente.
+
+8.3 Metodología RUP vs Scrum+XP
+    RUP(Rational Unified Process):
+    DO {
+        *   Requisitar
+        *   Analizar
+        *   Diseñar
+        *   Programar
+        *   Probar
+        *   Desplegar
+    } WHILE (finProyecto)
+    En cada iteración no se pone el mismo esfuerzo a algo que en otras iteraciones.
+        *   En las primeras iteraciones se requisita mucho, se analiza y se diseña un poco, se programa muy poquito, se despliega nada
+        *   Luego en las siguientes se sigue requisitando pero menos, se analiza y se diseña mucho, se comienza a programar mucho, se va probando
+        *   Luego casi no se requisita, se analiza y se diseña pero poco, se programa full, se prueba
+
+    Scrum+XP(eXtreming programming):
+    DO {
+        *   Requisitar - Analizar   (Sprint Planning Meeting)
+        *   Probar - Diseñar            Test Driven Development (Refactoring)
+        *   Programar - Rediseñar       Test Driven Development (Refactoring)
+        *   Desplegar   Continuous   (Integration)
+     } WHILE (finProyecto)
+    Requisitar(10% del proyecto):
+    >> XP: Sprint Planning Meeting, todos se ponen de pie y escuchan la historia del usuario, lo anotan en una cartulina junto con una conversación. no documentan pero es lo mismo que los diagramas de clases, todas las personas que trabajan en el proyecto están escuchando al cliente lo que tiene que decir.
+    >> RUP: Requisita uno o dos con el cliente, cuando ya tenga la idea de todo le cuenta el resultado al analista que le interesa solamente.
+
+    TDD(Test Driven Development):
+    >> XP: Programan, Diseñan y Prueban a la vez, cuando haces TDD escribes las pruebas y al escribirlas estas poniendo el nombre de las clases y los mensajes que le vas a lanzar al código que aún no existe.
+            * obligatorio se hacen Pruebas que diseñan cómo será el código de producción, y luego programan el código de producción, lo programan mal ya que en dicha iteración solo les importa que funcione, y en una siguiente iteración se refactoriza y se le meterá la calidad.
+            Te pasas el día rediseñando.
+    >> RUP: haz lo que quieras.
+
+    RUP:                                                                            | Scrum+XP:
+    Gestión de documentación de requisitos, análisis y diseño; pesadas              | Poca documentación porque la mejor documentación es el código: ligeras
+    Con estimaciones del tiempo y coste del proyecto entero                         | Sin estimaciones del tiempo ni coste del proyecto entero
+    Planificación a largo plazo y revisiones del plan en cada iteración             | Planificación de la iteración actual pero sin previsión a largo plazo
+    Entrevistas con el cliente durante las primeras iteraciones y en cada entrega   | Entrevistas con el cliente durante todo el proyecto (el cliente tiene que estas disponible las 8 horas)
+    Desarrollo priorizado por riesgos técnicos(lo que más miedo te de hasta encontrar una buena arquitectura que con pruebas demuestre que la calidad es buena)      | Desarrollo priorizado por el cliente, es el cliente el que decide que quiere primero y que quiere después.
+    Roles especializados por desarrollador                                          | Desarrolladores multidisciplinarios
+    Diseñamos la Arquitectura                                                       | La Arquitectura emerge de todo el TDD hecho a lo largo del proyecto
