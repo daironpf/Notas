@@ -7,7 +7,7 @@ El resumen lo realizo en este momento desde el canal en YouTube del profesor Lui
 Quiero agradecer al académico por hacer público este y más conocimientos de estadísticas en su canal.
 
 # Software & Análisis y Diseño Orientado a Objetos
-El resumen lo hice, para quien le sirva, desde el canal en Youtube de https://github.com/¬miw-upm
+El resumen lo hice, para quien le sirva, desde el canal en Youtube de https://www.youtube.com/@miwupm
 Todo el crédito y agradecimiento va para la Universidad Politécnica de Madrid.
 En este apartado resumiré lo que más necesito ahora que son los conocimientos de Arquitectura, Patrones y Diseño.
 
